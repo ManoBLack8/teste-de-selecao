@@ -1,6 +1,7 @@
 <?php 
+//CONECTANDO AO BANCO DE DADOS
 require_once("conexao.php");
-
+//DADOS DO FORMULÁRIO
 $nome_escola = $_POST['nome-escola'];
 $cep = $_POST['cep'];
 $uf = $_POST['uf'];
@@ -12,7 +13,7 @@ $id_escola = $_POST['id-escola'];
 $situ = $_POST['situação'];
 $data = $_POST['data'];
 
-
+//SUBIR E EDITAR DADOS DO BANCO DE DADOS
 if($id_escola == ""){
 	$res = $pdo->prepare("INSERT INTO escolas (id, nome, cep, estado, cidade, bairro, rua, numero, situ, dataa ) VALUES (:id, :nome, :cep, :estado, :cidade, :bairro, :rua, :numero, :situ, :dataa)");
 	$res->bindValue(":id", $id_escola);
