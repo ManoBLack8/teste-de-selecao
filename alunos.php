@@ -2,9 +2,10 @@
 <html lang="pt-br">
 
 <head>
+    <!-- CABEÇALHO -->
     <meta charset="UTF-8">
-    <meta name="description" content="Ogani Template">
-    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="refresh" content="100";url="index.php">
@@ -27,11 +28,12 @@
 
 
 <body>
+<!-- BOTÃO PARA ADICIONAR ALUNO -->
 <div class="container">
-<div class="row">
-    <a type="button" class="" href="alunos-cadastro.php">Nova Categoria</a>
+  <div class="row">
+      <a type="button" class="" href="alunos-cadastro.php">Cadastrar aluno</a>
     
-</div>
+  </div>
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <!-- PARAMETROS DA TABELA -->
             <thead>
