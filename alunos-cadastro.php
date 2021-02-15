@@ -2,9 +2,10 @@
 <html lang="pt-br">
 
 <head>
+    <!-- CABEÇALHO -->
     <meta charset="UTF-8">
-    <meta name="description" content="Ogani Template">
-    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="refresh" content="100";url="index.php">
@@ -29,10 +30,12 @@
             <form id="form" method="POST">
                 <div class="modal-body">
                 <?php 
+                // CONECTANDO AO BANCO DE DADOS
                 require_once("conexao.php");
-                if (@$_GET['funcao'] == 'editar') {
+                  if (@$_GET['funcao'] == 'editar') {
                     $id2 = $_GET['id'];
-
+           
+                    //RECUPERANDO DADOS DO BANCO DE DADOS
                     $query = $pdo->query("SELECT * FROM alunos where id = '" . $id2 . "' ");
                     $res = $query->fetchAll(PDO::FETCH_ASSOC);
 
@@ -61,6 +64,7 @@
 
                 ?>
 
+                   <!-- SE ESTIVER NA AÇÃO DE EDIÇÃO OS RESULTADO APARECM NOS INPUTS -->
                     <div class="form-group">
                         <label >ID</label>
                         <input value="<?php echo @$id_aluno ?>" type="text" class="form-control" id="id-alunos" name="id-alunos" >
@@ -73,6 +77,7 @@
                         <label >DATA DE NASCIMENTO</label>
                         <input value="<?php echo @$data2 ?>" type="date" class="form-control" id="cep" name="nascimento" >
                     </div>
+                    <!-- não consegui mostrar o resultado no select por falta de tempo-->
                     <div class="form-group">
                     <select id="genero" name="genero">
                         <option value="genero">Selecione seu genero:</option> 
@@ -90,13 +95,12 @@
                         <input value="<?php echo @$email2 ?>" type="text" class="form-control" id="bairro" name="email" >
                     </div>
                         <input list="browsers" name="escolas" id="browser">
-
+                    <!-- PEGAR ESCOLAS NO BANCO DE DADOS -->
                     <div class="form-group">        
                         <datalist id="browsers">
                             <?php
                              $query = $pdo->query("SELECT * FROM escolas order by id desc ");
                              $res = $query->fetchAll(PDO::FETCH_ASSOC);
-
                              for ($i=0; $i < count($res); $i++) { 
                              foreach ($res[$i] as $key => $value) {
                              }
@@ -133,7 +137,7 @@
 <script src="js/mixitup.min.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
-
+<!-- AJAX PARA SUBIR INFORMAÇÕES DO FORMULÁRIO -->
 <script type="text/javascript">
     $('#btncaalunos').click(function(event) {
     event.preventDefault();
